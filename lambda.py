@@ -8,6 +8,9 @@ def lambda_handler(event, context):
 
     s3 = boto3.resource('s3', config=Config(signature_version='s3v4'))
 
+    sns = boto3.resource('sns')
+    topic = sns.Topic('arn:aws:sns:us-east-1:090877040118:ReactTopic')
+
     build_bucket = s3.Bucket('portfoliobuild.robinnorwood.info')
     portfolio_bucket = s3.Bucket('portfolio.robinnorwood.info')
 
