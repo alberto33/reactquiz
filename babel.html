@@ -5,18 +5,27 @@
     <title>Babel</title>
   </head>
   <body>
-    <<main>
-      <<div id="content">
+    <main>
+      <label>Name: <input id="name" type="text" name="" value=""></label>
+      <button id="submit_info" type="button" name="button">Submit</button>
+      <div id="content">
 
       </div>
     </main>
-    <<script type="text/javascript" src="https://unpkg.com/babel-standalone">
+    <script src="https://unpkg.com/babel-standalone">
 
     </script>
 
-    <<script type="text/babel" data-presets="latest">
-      const getMessage = (name) => `Welcome to Javascript, ${name}`
-      document.getElementById('content').textMessage =  getMessage("Ricardo");
+    <script type="text/babel" data-presets="latest">
+
+    const getMessage = (name) => `Welcome to Javascript, ${name}`
+    const button = document.getElementById('submit_info');
+
+    button.addEventListener('click', (evt) => {
+      let name = document.getElementById("name").value;
+      document.getElementById('content').textContent =  getMessage(name);
+    });
+
     </script>
   </body>
 </html>
